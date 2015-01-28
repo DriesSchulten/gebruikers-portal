@@ -1,0 +1,29 @@
+buildscript {
+    ext {
+        springBootVersion = '1.2.1.RELEASE'
+        groovyVersion = '2.4.0'
+    }
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'spring-boot'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+	compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}
